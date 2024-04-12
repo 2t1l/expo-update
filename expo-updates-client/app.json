@@ -13,7 +13,7 @@
     },
     "runtimeVersion": "1",
     "updates": {
-      "url": "https://expo-update-p14b.vercel.app/",
+      "url": "https://expo-update-sigma.vercel.app/api/manifest",
       "enabled": true,
       "fallbackToCacheTimeout": 30000,
       "codeSigningCertificate": "./code-signing/certificate.pem",
