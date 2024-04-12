@@ -5,7 +5,7 @@ import Constants from 'expo-constants';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Updating 5</Text>
+      <Text>Updating 6</Text>
       <Text>{Constants.expoConfig.name}</Text>
       <Image source={require('./assets/favicon.png')} />
       <StatusBar style="auto" />
