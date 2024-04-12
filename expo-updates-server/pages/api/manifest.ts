@@ -36,14 +36,14 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
 
   const platform = 'ios';
 
-  const runtimeVersion = req.headers['expo-runtime-version'] ?? req.query['runtime-version'];
-  if (!runtimeVersion || typeof runtimeVersion !== 'string') {
-    res.statusCode = 400;
-    res.json({
-      error: 'No runtimeVersion provided.',
-    });
-    return;
-  }
+  const runtimeVersion = '1';
+  // if (!runtimeVersion || typeof runtimeVersion !== 'string') {
+  //   res.statusCode = 400;
+  //   res.json({
+  //     error: 'No runtimeVersion provided.',
+  //   });
+  //   return;
+  // }
 
   let updateBundlePath: string;
   try {
