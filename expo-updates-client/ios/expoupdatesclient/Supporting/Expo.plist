@@ -38,6 +38,6 @@ ZA==
     <key>EXUpdatesRuntimeVersion</key>
     <string>1</string>
     <key>EXUpdatesURL</key>
-    <string>http://localhost:3000/api/manifest</string>
+    <string>https://expo-update-p14b.vercel.app/</string>
   </dict>
 </plist>
