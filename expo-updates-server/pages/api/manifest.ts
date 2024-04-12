@@ -34,23 +34,9 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
   }
   const protocolVersion = parseInt(protocolVersionMaybeArray ?? '0', 10);
 
-  const platform = req.headers['expo-platform'] ?? req.query['platform'];
-  if (platform !== 'ios' && platform !== 'android') {
-    res.statusCode = 400;
-    res.json({
-      error: 'Unsupported platform. Expected either ios or android.',
-    });
-    return;
-  }
+  const platform = 'ios';
 
-  const runtimeVersion = req.headers['expo-runtime-version'] ?? req.query['runtime-version'];
-  if (!runtimeVersion || typeof runtimeVersion !== 'string') {
-    res.statusCode = 400;
-    res.json({
-      error: 'No runtimeVersion provided.',
-    });
-    return;
-  }
+  const runtimeVersion = '1';
 
   let updateBundlePath: string;
   try {
