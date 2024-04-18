@@ -35,7 +35,7 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
   const protocolVersion = parseInt(protocolVersionMaybeArray ?? '0', 10);
   
   function getPrivateKeyAsync() {
-    const privateKeyPath = process.env.PRIVATE_KEY;
+    const privateKeyPath = process.env.PRIVATE_KEY!.split(String.raw`\n`).join('\n');
     const privateKeyString = privateKeyPath!.toString();
     const pemBuffer = Buffer.from(privateKeyString, 'utf-8');
     return pemBuffer.toString('utf-8');
