@@ -33,12 +33,29 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
     return;
   }
   const protocolVersion = parseInt(protocolVersionMaybeArray ?? '0', 10);
+  
+  function getPrivateKeyAsync() {
+    const privateKeyPath = process.env.PRIVATE_KEY;
+    const privateKeyString = privateKeyPath!.toString();
+    const pemBuffer = Buffer.from(privateKeyString, 'utf-8');
+    return pemBuffer.toString('utf-8');
+   
+    // if (!privateKeyPath) {
+    //   return null;
+    // }
+  
+    // const pemBuffer = await fs.readFile(path.resolve(privateKeyPath));
+    // return pemBuffer.toString('utf8');
+  }
 
   const platform = req.headers['expo-platform'] ?? req.query['platform'];
   if (platform !== 'ios' && platform !== 'android') {
+    
+    const key = getPrivateKeyAsync();
+
     res.statusCode = 400;
     res.json({
-      error: 'Unsupported platform. Expected either ios or android.',
+      error: key,
     });
     return;
   }
