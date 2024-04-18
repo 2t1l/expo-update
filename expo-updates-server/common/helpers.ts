@@ -30,8 +30,9 @@ export function signRSASHA256(data: string, privateKey: string) {
   return sign.sign(privateKey, 'base64');
 }
 
+
 export async function getPrivateKeyAsync() {
-  const privateKeyPath = process.env.PRIVATE_KEY;
+  const privateKeyPath = process.env.PRIVATE_KEY!.split(String.raw`\n`).join('\n');
   return privateKeyPath;
   // if (!privateKeyPath) {
   //   return null;
