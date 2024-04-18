@@ -5,7 +5,7 @@ import Constants from 'expo-constants';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Updating from production 5 vercel 2</Text>
+      <Text>Updating from production 5 vercel 3</Text>
       <Text>{Constants.expoConfig.name}</Text>
       <Image source={require('./assets/favicon.png')} />
       <StatusBar style="auto" />
