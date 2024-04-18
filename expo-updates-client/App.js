@@ -14,8 +14,11 @@ export default function App() {
     try {
       const update = await Updates.checkForUpdateAsync();
       if (update.isAvailable) {
+        alert("new update");
         await Updates.fetchUpdateAsync();
         await Updates.reloadAsync();
+      }else {
+        alert("no new update");
       }
     } catch (error) {
       // You can also add an alert() to see the error message in case of an error when fetching updates.
@@ -25,7 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Updating from production</Text>
+      <Text>Updating from production 2</Text>
       <Text>{Constants.expoConfig.name}</Text>
       <Image source={require('./assets/favicon.png')} />
       <StatusBar style="auto" />
