@@ -23,6 +23,7 @@ export function convertToDictionaryItemsRepresentation(obj: { [key: string]: str
   );
 }
 
+
 export function signRSASHA256(data: string, privateKey: string) {
   const sign = crypto.createSign('RSA-SHA256');
   sign.update(data, 'utf8');
@@ -30,16 +31,14 @@ export function signRSASHA256(data: string, privateKey: string) {
   return sign.sign(privateKey, 'base64');
 }
 
-
 export async function getPrivateKeyAsync() {
-  const privateKeyPath = process.env.PRIVATE_KEY!.replace(/\\n/g, '\n');
-  return privateKeyPath;
-  // if (!privateKeyPath) {
-  //   return null;
-  // }
+  const privateKeyPath = process.env.PRIVATE_KEY_PATH;
+  if (!privateKeyPath) {
+    return null;
+  }
 
-  // const pemBuffer = await fs.readFile(path.resolve(privateKeyPath));
-  // return pemBuffer.toString('utf8');
+  const pemBuffer = await fs.readFile(path.resolve(privateKeyPath));
+  return pemBuffer.toString('utf8');
 }
 
 export async function getLatestUpdateBundlePathForRuntimeVersionAsync(runtimeVersion: string) {
