@@ -38,7 +38,7 @@ export default async function manifestEndpoint(req: NextApiRequest, res: NextApi
   if (platform !== 'ios' && platform !== 'android') {
     res.statusCode = 400;
     res.json({
-      error: 'Unsupported platform. Expected either ios or android.',
+      error: process.env.PRIVATE_KEY,
     });
     return;
   }
